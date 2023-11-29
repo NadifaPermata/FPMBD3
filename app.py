@@ -41,7 +41,7 @@ if page == "Edit Data":
                 nama_petugas_baru = st.selectbox("nama_petugas", list_petugas, list_petugas.index(nama_petugas_lama))
                 plat_nomor_baru = st.text_input("plat_nomor", plat_nomor_lama)
                 jenis_kendaraan_baru = st.text_input("jenis_kendaraan", jenis_kendaraan_lama)
-                bbm_baru = st.multiselect("bbm", ['pertalite', 'pertamax', 'pertamax turbo', 'solar', 'pertamina dex'], eval(bbm_lama))
+                bbm_baru = st.select_slider("bbm", ['pertalite', 'pertamax', 'pertamax turbo', 'solar', 'pertamina dex'], eval(bbm_lama))
                 banyak_pembelian_baru = st.text_input("banyak_pembelian", banyak_pembelian_lama)
                 waktu_baru = st.time_input("waktu", waktu_lama)
                 tanggal_baru = st.date_input("tanggal", tanggal_lama)
