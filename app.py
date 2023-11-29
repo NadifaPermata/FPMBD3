@@ -8,7 +8,7 @@ conn = st.connection("postgresql", type="sql",
                      url="postgresql://NadifaPermata:7CIXwskWNRy0@ep-falling-cherry-06864175.us-east-2.aws.neon.tech/mbd3")
 with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS SELLING (id serial, nama_petugas varchar, plat_nomor char(25), jenis_kendaraan varchar, \
-                                                       bbm text, banyak_pembelian varchar, tanggal date);')
+                                                       bbm text, banyak_pembelian char(2), tanggal date);')
     session.execute(query)
 
 st.header('SPBU DATA MANAGEMENT')
@@ -56,7 +56,7 @@ if page == "Edit Data":
                                           SET nama_petugas=:1, plat_nomor=:2, symptom=:3, jenis_kendaraan=:4 \
                                           banyak_pembelian=:5, waktu=:6, tanggal=:7 \
                                           WHERE id=:7;')
-                            session.execute(query, {'1':nama_petugas_baru, '2':plat_nomor_baru, '3':str(bbm_baru), '4':jenis_kendaraan_baru, 
+                            session.execute(query, {'1':nama_petugas_baru, '2':plat_nomor_baru, '3':(bbm_baru), '4':jenis_kendaraan_baru, 
                             '5':banyak_pembelian_baru, '6':waktu_baru, '7':tanggal_baru, '8':id})
                             session.commit()
                             st.experimental_rerun()
