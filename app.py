@@ -42,7 +42,7 @@ if page == "Edit Data":
                 nama_petugas_baru = st.selectbox("nama_petugas", list_petugas, list_petugas.index(nama_petugas_lama))
                 plat_nomor_baru = st.text_input("plat_nomor", plat_nomor_lama)
                 jenis_kendaraan_baru = st.text_input("jenis_kendaraan", jenis_kendaraan_lama)
-                bbm_baru = st.selectbox("bbm", list_bbm, list_bbm.index(symptom_lama))
+                bbm_baru = st.selectbox("bbm", list_bbm, list_bbm.index(bbm_lama))
                 banyak_pembelian_baru = st.text_input("banyak_pembelian", banyak_pembelian_lama)
                 waktu_baru = st.time_input("waktu", waktu_lama)
                 tanggal_baru = st.date_input("tanggal", tanggal_lama)
@@ -56,7 +56,7 @@ if page == "Edit Data":
                                           SET nama_petugas=:1, plat_nomor=:2, symptom=:3, jenis_kendaraan=:4 \
                                           banyak_pembelian=:5, waktu=:6, tanggal=:7 \
                                           WHERE id=:7;')
-                            session.execute(query, {'1':nama_petugas_baru, '2':plat_nomor_baru, '3':str(symptom_baru), '4':jenis_kendaraan_baru, 
+                            session.execute(query, {'1':nama_petugas_baru, '2':plat_nomor_baru, '3':str(bbm_baru), '4':jenis_kendaraan_baru, 
                             '5':banyak_pembelian_baru, '6':waktu_baru, '7':tanggal_baru, '8':id})
                             session.commit()
                             st.experimental_rerun()
