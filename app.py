@@ -18,7 +18,7 @@ if page == "View Data":
     st.dataframe(data)
 
 if page == "Edit Data":
-    if st.form_submit_button('Tambah Data'):
+    if st.form('Tambah Data'):
         with conn.session as session:
             query = text('INSERT INTO selling (nama_petugas, plat_nomor, jenis_kendaraan, bbm, banyak_pembelian, waktu, tanggal) \
                           VALUES (:1, :2, :3, :4, :5, :6, :7 :8);')
