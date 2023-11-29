@@ -10,7 +10,7 @@ create table selling (
 	tanggal date
 );
 
-insert into selling (nama_petugas, plat_nomor, jenis_kendaraan, symptom, banyak_pembelian, waktu, tanggal) 
+insert into selling (nama_petugas, plat_nomor, jenis_kendaraan, bbm, banyak_pembelian, waktu, tanggal) 
 values
 	('Nuryanto', 'L 0919 CGF', 'mobil','pertamax turbo', 62838, '08:00', '2023-10-01'),
 	('Angel', 'M 2348 GHT', 'motor', 'pertamax', 62838, '09:00', '2022-10-02')
