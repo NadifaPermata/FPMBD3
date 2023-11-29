@@ -4,7 +4,7 @@ create table selling (
 	nama_petugas text,
 	plat_nomor text,
 	jenis_kendaraan text,
-	symptom text,
+	bbm text,
 	banyak_pembelian text,
 	waktu time,
 	tanggal date

@@ -2,13 +2,13 @@ import streamlit as st
 from sqlalchemy import text
 
 list_petugas = ['', 'Nuryanto', 'Angel', 'Siola', 'Riki', 'Karan']
-list_symptom = ['', 'pertalite', 'pertamax', 'pertamax turbo', 'solar', 'pertamina dex']
+list_bbm = ['', 'pertalite', 'pertamax', 'pertamax turbo', 'solar', 'pertamina dex']
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://NadifaPermata:7CIXwskWNRy0@ep-falling-cherry-06864175.us-east-2.aws.neon.tech/mbd3")
 with conn.session as session:
     query = text('CREATE TABLE IF NOT EXISTS SELLING (id serial, nama_petugas varchar, plat_nomor char(25), jenis_kendaraan varchar, \
-                                                       symptom text, banyak_pembelian varchar, tanggal date);')
+                                                       bbm text, banyak_pembelian varchar, tanggal date);')
     session.execute(query)
 
 st.header('SPBU DATA MANAGEMENT')
@@ -21,7 +21,7 @@ if page == "View Data":
 if page == "Edit Data":
     if st.button('Tambah Data'):
         with conn.session as session:
-            query = text('INSERT INTO selling (nama_petugas, plat_nomor, jenis_kendaraan, symptom, banyak_pembelian, waktu, tanggal) \
+            query = text('INSERT INTO selling (nama_petugas, plat_nomor, jenis_kendaraan, bbm, banyak_pembelian, waktu, tanggal) \
                           VALUES (:1, :2, :3, :4, :5, :6, :7 :8);')
             session.execute(query, {'1':'', '2':'', '3':'', '4':'[]', '5':'', '6':'', '7':None, '8':None})
             session.commit()
@@ -32,7 +32,7 @@ if page == "Edit Data":
         nama_petugas_lama = result["nama_petugas"]
         plat_nomor_lama = result["plat_nomor"]
         jenis_kendaraan_lama = result["jenis_kendaraan"]
-        symptom_lama = result["symptom"]
+        bbm_lama = result["bbm"]
         banyak_pembelian_lama = result["banyak_pembelian"]
         waktu_lama = result["waktu"]
         tanggal_lama = result["tanggal"]
@@ -42,7 +42,7 @@ if page == "Edit Data":
                 nama_petugas_baru = st.selectbox("nama_petugas", list_petugas, list_petugas.index(nama_petugas_lama))
                 plat_nomor_baru = st.text_input("plat_nomor", plat_nomor_lama)
                 jenis_kendaraan_baru = st.text_input("jenis_kendaraan", jenis_kendaraan_lama)
-                symptom_baru = st.multiselect("symptom", ['pertalite', 'pertamax', 'pertamax turbo', 'solar', 'pertamina dex'], eval(symptom_lama))
+                bbm_baru = st.selectbox("bbm", list_bbm, list_bbm.index(symptom_lama))
                 banyak_pembelian_baru = st.text_input("banyak_pembelian", banyak_pembelian_lama)
                 waktu_baru = st.time_input("waktu", waktu_lama)
                 tanggal_baru = st.date_input("tanggal", tanggal_lama)
