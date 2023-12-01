@@ -15,7 +15,7 @@ st.header('SPBU DATA MANAGEMENT')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
 
 if page == "View Data":
-    data = conn.query('SELECT * FROM selling ORDER By id;', ttl="0").set_index('id')
+    data = conn.query('SELECT * FROM selling where waktu is not null ORDER By id;', ttl="0").set_index('id')
     st.dataframe(data)
 
 if page == "Edit Data":
@@ -26,7 +26,7 @@ if page == "Edit Data":
             session.execute(query, {'1':'', '2':'', '3':'', '4':'', '5':'', '6':None, '7':None})
             session.commit()
 
-    data = conn.query('SELECT * FROM selling A WHERE IS NOT NULL ORDER By id;', ttl="0")
+    data = conn.query('SELECT * FROM selling where waktu is not null ORDER By id;', ttl="0")
     for _, result in data.iterrows():        
         id = result['id']
         nama_petugas_lama = result["nama_petugas"]
@@ -55,7 +55,7 @@ if page == "Edit Data":
                             query = text('UPDATE selling \
                                           SET nama_petugas=:1, plat_nomor=:2, bbm=:3, jenis_kendaraan=:4, \
                                           banyak_pembelian=:5, waktu=:6, tanggal=:7 \
-                                          WHERE id=:8;')
+                                          WHERE id=8:;')
                             session.execute(query, {'1':nama_petugas_baru, '2':plat_nomor_baru, '3':(bbm_baru), '4':jenis_kendaraan_baru, 
                             '5':banyak_pembelian_baru, '6':waktu_baru, '7':tanggal_baru, '8':id})
                             session.commit()
