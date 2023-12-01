@@ -43,7 +43,7 @@ if page == "Edit Data":
                 plat_nomor_baru = st.text_input("plat_nomor", plat_nomor_lama)
                 jenis_kendaraan_baru = st.text_input("jenis_kendaraan", jenis_kendaraan_lama)
                 bbm_baru = st.selectbox("bbm", list_bbm, list_bbm.index(bbm_lama))
-                banyak_pembelian_baru = st.text_input("banyak_pembelian (dalam_liter)", banyak_pembelian_lama)
+                banyak_pembelian_baru = st.text_input("banyak_pembelian", banyak_pembelian_lama)
                 waktu_baru = st.time_input("waktu", waktu_lama)
                 tanggal_baru = st.date_input("tanggal", tanggal_lama)
                 
