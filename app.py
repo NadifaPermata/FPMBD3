@@ -26,7 +26,7 @@ if page == "Edit Data":
             session.execute(query, {'1':'', '2':'', '3':'', '4':'', '5':'', '6':None, '7':None})
             session.commit()
 
-    data = conn.query('SELECT * FROM selling a where waktu is not null ORDER By id;', ttl="0")
+    data = conn.query('SELECT * FROM selling A WHERE IS NOT NULL ORDER By id;', ttl="0")
     for _, result in data.iterrows():        
         id = result['id']
         nama_petugas_lama = result["nama_petugas"]
