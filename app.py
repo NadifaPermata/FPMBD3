@@ -9,7 +9,7 @@ company_name = "PT Pertamina Indonesia"  # Replace with the actual name of your 
 st.title(company_name)
 
 # Add a logo
-company_logo_url = "https://2.bp.blogspot.com/-rJphvzWyY2M/WrhR1gauP3I/AAAAAAAAECM/QHnQIUmXIAAY_edP8d_jLk2OFGd0_w19wCLcBGAs/s1600/Logo%2BPertamin%2BVector%2BCDR%2BCorelDraw.jpg"  # Replace with the URL of your company logo
+company_logo_url = "https://solusiprinting.com/wp-content/uploads/2023/02/Solusi-Printing-Logo-Pertamina-Baru-1280-x-720-pixel-1024x576.jpg"  # Replace with the URL of your company logo
 st.image(company_logo_url, caption=company_name, use_column_width=True, width=50)
 
 conn = st.connection("postgresql", type="sql", 
