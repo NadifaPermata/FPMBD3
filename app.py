@@ -11,13 +11,30 @@ with conn.session as session:
                                                        bbm text, banyak_pembelian integer, tanggal date);')
     session.execute(query)
 
+bg_color = "#7fb3d5"  # You can change this to your preferred color code
+st.markdown(f"""
+    <style>
+        body {{
+            background-color: {bg_color};
+        }}
+    </style>
+""", unsafe_allow_html=True)
+
 st.header('SPBU DATA MANAGEMENT')
-page = st.sidebar.selectbox("Pilih Menu", ["View Data","Edit Data"])
+page = st.sidebar.selectbox("Pilih Menu", ["View Data", "Edit Data"])
+
+# ... (rest of your existing code)
+
+search_query = st.text_input("Search by plat_nomor", "")
 
 if page == "View Data":
     data = conn.query('SELECT * FROM selling where waktu is not null ORDER By id;', ttl="0").set_index('id')
-    st.dataframe(data)
 
+    if search_query:
+        data = data[data['plat_nomor'].str.contains(search_query, case=False)]
+
+    st.dataframe(data)
+    
 if page == "Edit Data":
     if st.form('Tambah Data'):
         with conn.session as session:
