@@ -4,6 +4,14 @@ from sqlalchemy import text
 list_petugas = ['', 'Nuryanto', 'Angel', 'Siola', 'Riki', 'Karan']
 list_bbm = ['', 'pertalite', 'pertamax', 'pertamax turbo', 'solar', 'pertamina dex']
 
+#Add a heading for the company with a logo
+company_name = "PT Pertamina Indonesia"  # Replace with the actual name of your company
+st.title(company_name)
+
+# Add a logo
+company_logo_url = "https://2.bp.blogspot.com/-rJphvzWyY2M/WrhR1gauP3I/AAAAAAAAECM/QHnQIUmXIAAY_edP8d_jLk2OFGd0_w19wCLcBGAs/s1600/Logo%2BPertamin%2BVector%2BCDR%2BCorelDraw.jpg"  # Replace with the URL of your company logo
+st.image(company_logo_url, caption=company_name, use_column_width=True)
+
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://NadifaPermata:7CIXwskWNRy0@ep-falling-cherry-06864175.us-east-2.aws.neon.tech/mbd3")
 with conn.session as session:
@@ -11,7 +19,18 @@ with conn.session as session:
                                                        bbm text, banyak_pembelian integer, tanggal date);')
     session.execute(query)
 
-st.header('SPBU DATA MANAGEMENT')
+st.write(
+    f"""
+    <style>
+        .stApp {{
+            background-color: #F1948A;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.header('DATABASE PENGUNJUNG SPBU WILAYAH KOTA SURABAYA')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data", "Edit Data"])
 
 if page == "View Data":
