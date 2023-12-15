@@ -10,7 +10,7 @@ st.title(company_name)
 
 # Add a logo
 company_logo_url = "https://2.bp.blogspot.com/-rJphvzWyY2M/WrhR1gauP3I/AAAAAAAAECM/QHnQIUmXIAAY_edP8d_jLk2OFGd0_w19wCLcBGAs/s1600/Logo%2BPertamin%2BVector%2BCDR%2BCorelDraw.jpg"  # Replace with the URL of your company logo
-st.image(company_logo_url, caption=company_name, use_column_width=True)
+st.image(company_logo_url, caption=company_name, use_column_width=True, width=50)
 
 conn = st.connection("postgresql", type="sql", 
                      url="postgresql://NadifaPermata:7CIXwskWNRy0@ep-falling-cherry-06864175.us-east-2.aws.neon.tech/mbd3")
