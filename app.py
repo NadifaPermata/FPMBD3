@@ -31,7 +31,6 @@ st.write(
 )
 
 st.header('DATABASE PENGUNJUNG SPBU WILAYAH KOTA SURABAYA')
-st.sidebar.image("icon.png", width=30)
 page = st.sidebar.selectbox("Pilih Menu", ["View Data", "Edit Data"])
 
 if page == "View Data":
