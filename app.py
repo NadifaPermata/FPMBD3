@@ -23,7 +23,7 @@ st.write(
     f"""
     <style>
         .stApp {{
-            background-color: #99FFFF;
+            background-color: #FE347E;
         }}
     </style>
     """,
