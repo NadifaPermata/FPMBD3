@@ -30,7 +30,7 @@ st.write(
     unsafe_allow_html=True
 )
 
-st.header('DATABASE PENGUNJUNG SPBU WILAYAH KOTA SURABAYA')
+st.header('DATABASE PENGUNJUNG SPBU WILAYAH KOTA SURABAYA SIDOARJO')
 page = st.sidebar.selectbox("Pilih Menu", ["View Data", "Edit Data"])
 
 if page == "View Data":
