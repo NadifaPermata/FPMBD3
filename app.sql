@@ -5,7 +5,7 @@ create table selling (
 	plat_nomor text,
 	jenis_kendaraan text,
 	bbm text,
-	banyak_pembelian text,
+	banyak_pembelian integer,
 	waktu time,
 	tanggal date
 );
