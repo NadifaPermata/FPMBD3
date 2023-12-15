@@ -84,6 +84,7 @@ if page == "Edit Data":
                             '5':banyak_pembelian_baru, '6':waktu_baru, '7':tanggal_baru, '8':id})
                             session.commit()
                             st.experimental_rerun()
+                            st.success("Data updated successfully!")
                 
                 with col2:
                     if st.form_submit_button('DELETE'):
